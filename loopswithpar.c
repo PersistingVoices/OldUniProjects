@@ -6,7 +6,7 @@
 #define reps 100 
 #include <omp.h> 
 
-double a[N][N], b[N][N], c[N];
+double a[N][N]={0}, b[N][N]={0}, c[N]={0};
 int jmax[N];  
 
 
