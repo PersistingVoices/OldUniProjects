@@ -19,8 +19,9 @@ void valid2(void);
 
 
 int main(int argc, char *argv[]) { 
+  FILE *pFile;
 
-  double start1,start2,end1,end2;
+  double start1,start2,end1,end2,time1,time2;
   int r;
 
   init1(); 
@@ -34,10 +35,12 @@ int main(int argc, char *argv[]) {
   end1  = omp_get_wtime();  
 
   valid1(); 
-
-  printf("Total time for %d reps of loop 1 = %f\n",reps, (float)(end1-start1)); 
-
-
+  time1 = (float)(end1-start1);
+  printf("Total time for %d reps of loop 1 = %f\n",reps, time1); 
+ 
+  pFile = fopen ("myfile.txt" , "w");
+  if (pFile == NULL) perror ("Error opening file");
+  
   init2(); 
 
   start2 = omp_get_wtime(); 
@@ -50,8 +53,11 @@ int main(int argc, char *argv[]) {
 
   valid2(); 
 
-  printf("Total time for %d reps of loop 2 = %f\n",reps, (float)(end2-start2)); 
-
+  time2 = (float)(end2-start2);
+  printf("Total time for %d reps of loop 2 = %f\n",reps, time2); 
+  printf("This file is functional\n"); 
+  fprintf(pFile,"%lf\t%lf\n",time1, time2);  
+  fclose(pFile);
 } 
 
 void init1(void){
@@ -100,14 +106,10 @@ void loop1(void) {
 } 
 
 
-
 void loop2(void) {
   int i,j,k; 
   double rN2; 
-#pragma omp parallel private(i,j,k)
-{
 
-#pragma omp atomic
 rN2 = 1.0 / (double) (N*N);  
 
 
@@ -119,7 +121,7 @@ rN2 = 1.0 / (double) (N*N);
     }
   }
 
-}//end pragma
+
 }//end void
 
 void valid1(void) { 
