@@ -19,13 +19,15 @@ void valid2(void);
 
 
 int main(int argc, char *argv[]) { 
-  FILE *pFile;
+  FILE *pFile2,*pFile1;
 
   double start1,start2,end1,end2,time1,time2;
-  int r,i=0;
+  int r,i=0,rand(void);
 
-  pFile = fopen ("myfile.txt" , "w");
-  if (pFile == NULL) perror ("Error opening file");
+  pFile1 = fopen ("file1.dat" , "w");
+  pFile2 = fopen ("file2.dat" , "w");
+
+  if (pFile1 == NULL || pFile2 ==NULL) perror ("Error opening file");
 
   for(i=0;i<10;i++)
   {
@@ -38,24 +40,26 @@ int main(int argc, char *argv[]) {
 
   valid1(); 
   time1 = (float)(end1-start1);
-  // printf("Total time for %d reps of loop 1 = %f\n",reps, time1); 
+  printf("Total time for %d reps of loop 1 = %f\n",reps, time1); 
  
   
   init2(); 
   start2 = omp_get_wtime(); 
-  for (r=0; r<reps; r++){ 
-    loop2();
-  } 
+  // for (r=0; r<reps; r++){ 
+  //   loop2();
+  // } 
   end2  = omp_get_wtime(); 
 
   valid2(); 
-  time2 = (float)(end2-start2);
+  time2 = 3;// (float)(end2-start2);
   // printf("Total time for %d reps of loop 2 = %f\n",reps, time2);
   // printf("This file is functional\n"); 
-  fprintf(pFile,"%d\t%lf\t%lf\n",i+1,time1,time2);  
+  fprintf(pFile1,"%d\t%d\t%lf\n",rand()%100,i+1,time1);
+  fprintf(pFile2,"%d\t%d\t%lf\n",rand()%100,i+1,time1);  
   }
-  printf("\n\t\t\tWritten toDro 'myfile.txt'\n\n"); 
-  fclose(pFile);
+  printf("\n\t\t\tWritten to 'myfile.dat'\n\n"); 
+  fclose(pFile1);
+  fclose(pFile2);
 } 
 
 
@@ -131,7 +135,7 @@ void valid1(void) {
       suma += a[i][j];
     }
   }
-  // printf("Loop 1 check: Sum of a is %lf\n", suma);
+  printf("Loop 1 check: Sum of a is %lf\n", suma);
 
 } 
 
@@ -144,7 +148,7 @@ void valid2(void) {
   for (i=0; i<N; i++){ 
     sumc += c[i];
   }
-  // printf("Loop 2 check: Sum of c is %f\n", sumc);
+  printf("Loop 2 check: Sum of c is %f\n", sumc);
 } 
  
 
