@@ -63,9 +63,8 @@ void init1(void){
         a[i][j] = 0.0; 
         b[i][j] = 3.142*(i+j); 
       }
-    } //for loops ends here
-
-}//void end
+    }
+}
 
 void init2(void){ 
   int i,j, expr; 
@@ -91,39 +90,30 @@ void init2(void){
 
 void loop1(void) { 
   int i,j; 
-#pragma omp parallel private(i,j)
- {//pragma begin    
- 
+    
+#pragma omp parallel for default(none) private(i,j) shared(a,b)
     for (i=0; i<N; i++){ 
       for (j=N-1; j>i; j--){
         a[i][j] += cos(b[i][j]);
-      } 
-    }
-
- } //pragma end
-}//loop1 end
-
+      }  //for2 end
+    }//for1 end
+ }//void end
 
 void loop2(void) {
 
   int i,j,k; 
   double rN2;
-
-#pragma omp parallel private(i,j,k)  
-{//pragma begin   
-
-#pragma omp critical
-{  rN2 = 1.0 / (double) (N*N);  
-}
+  rN2 = 1.0 / (double) (N*N);
+  
+#pragma omp parallel for default(none) private(i,j,k) shared(c,b,jmax,rN2)
     for (i=0; i<N; i++){ 
       for (j=0; j < jmax[i]; j++){
-  	c[i] += (k+1) * log (b[i][j]) * rN2;
-        } 
-      }
-
-}//pragma end
-
-}//loop2 end
+        for(k=0;k<j;k++){
+          c[i] += (k+1) * log (b[i][j]) * rN2;
+         } //for3 end   
+      } //for2 end
+    }//for1 end
+}//void end
 
 
 void valid1(void) { 
