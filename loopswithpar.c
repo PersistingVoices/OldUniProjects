@@ -19,9 +19,10 @@ void valid2(void);
 
 
 int main(int argc, char *argv[]) { 
+  FILE *pFile;
 
-  double start1,start2,end1,end2;
-  int r;
+  double start1,start2,end1,end2,time1,time2;
+  int r,n1=1,n2=1;
 
   init1(); 
 
@@ -34,10 +35,12 @@ int main(int argc, char *argv[]) {
   end1  = omp_get_wtime();  
 
   valid1(); 
-
-  printf("Total time for %d reps of loop 1 = %f\n",reps, (float)(end1-start1)); 
-
-
+  time1 = (float)(end1-start1);
+  printf("Total time for %d reps of loop 1 = %f\n",reps, time1); 
+ 
+  pFile = fopen ("myfile.txt" , "w");
+  if (pFile == NULL) perror ("Error opening file");
+  
   init2(); 
 
   start2 = omp_get_wtime(); 
@@ -50,9 +53,13 @@ int main(int argc, char *argv[]) {
 
   valid2(); 
 
-  printf("Total time for %d reps of loop 2 = %f\n",reps, (float)(end2-start2)); 
-
+  time2 = (float)(end2-start2);
+  printf("Total time for %d reps of loop 2 = %f\n",reps, time2); 
+  printf("This file is functional\n"); 
+  fprintf(pFile,"%d\t%lf\t%d\t%lf\n",n1,time1, n2,time2);  
+  fclose(pFile);
 } 
+
 
 void init1(void){
   
