@@ -43,9 +43,9 @@ int main(int argc, char *argv[]) {
   
   init2(); 
   start2 = omp_get_wtime(); 
-  // for (r=0; r<reps; r++){ 
-  //   loop2();
-  // } 
+  for (r=0; r<reps; r++){ 
+    loop2();
+  } 
   end2  = omp_get_wtime(); 
 
   valid2(); 
@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
   // printf("This file is functional\n"); 
   fprintf(pFile,"%d\t%lf\t%lf\n",i+1,time1,time2);  
   }
-  printf("\n\t\t\tWritten to 'myfile.txt'\n\n"); 
+  printf("\n\t\t\tWritten toDro 'myfile.txt'\n\n"); 
   fclose(pFile);
 } 
 
