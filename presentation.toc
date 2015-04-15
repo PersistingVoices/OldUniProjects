@@ -1,0 +1,29 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {2}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {2}{1}{Hello World}{5}{0}{1}
+\beamer@subsectionintoc {2}{2}{Pros and cons}{7}{0}{1}
+\beamer@subsectionintoc {2}{3}{Other reasons}{8}{0}{1}
+\beamer@sectionintoc {3}{C++ Object Orientied Programming}{9}{0}{2}
+\beamer@subsectionintoc {3}{1}{Encapsulation}{11}{0}{2}
+\beamer@subsectionintoc {3}{2}{Inheritance}{17}{0}{2}
+\beamer@subsectionintoc {3}{3}{Polymorphism}{20}{0}{2}
+\beamer@subsectionintoc {3}{4}{The big picture}{22}{0}{2}
+\beamer@sectionintoc {4}{Productivity Tricks}{23}{0}{3}
+\beamer@subsectionintoc {4}{1}{MATLAB in C++}{24}{0}{3}
+\beamer@subsectionintoc {4}{2}{C++ in MATLAB via MEX-files}{27}{0}{3}
+\beamer@subsectionintoc {4}{3}{Microsoft Visual C++}{29}{0}{3}
+\beamer@subsectionintoc {4}{4}{Mixing C++ with other languages}{31}{0}{3}
+\beamer@subsectionintoc {4}{5}{Clang++ Compiler}{32}{0}{3}
+\beamer@subsectionintoc {4}{6}{C in C++}{33}{0}{3}
+\beamer@subsectionintoc {4}{7}{C++11}{34}{0}{3}
+\beamer@subsectionintoc {4}{8}{C++14}{35}{0}{3}
+\beamer@subsectionintoc {4}{9}{C++ codes and projects}{36}{0}{3}
+\beamer@sectionintoc {5}{Sunder}{37}{0}{4}
+\beamer@sectionintoc {6}{Tutorial}{41}{0}{5}
+\beamer@subsectionintoc {6}{1}{General}{42}{0}{5}
+\beamer@subsectionintoc {6}{2}{Classes}{43}{0}{5}
+\beamer@subsectionintoc {6}{3}{Inheritance}{43}{0}{5}
+\beamer@sectionintoc {7}{Appendix}{51}{0}{6}
+\beamer@sectionintoc {8}{Reference}{63}{0}{7}
+\beamer@subsectionintoc {8}{1}{colors}{64}{0}{7}
+\beamer@subsectionintoc {8}{2}{blocks}{67}{0}{7}
