@@ -3,7 +3,7 @@
 
 
 #define N 729
-#define reps 100 
+#define reps 1 
 #include <omp.h> 
 
 double a[N][N], b[N][N], c[N];
@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
 } 
 
 void init1(void){
-  int i,j, Ars[4], Arf[4], Ardone[4];
+  int i,j;
 
   for (i=0; i<N; i++){ 
     for (j=0; j<N; j++){ 
@@ -96,40 +96,45 @@ void init2(void){
 
 void loop1(void) { 
   int i,j, Ars[4], Arf[4], Ardone[4], Tid = 0, Tnums=0;
-  double start=0,finish=0, chunk_range=0.0,chunk_range_temp=0.0, finish_state=0.0, place=0 ;
+  double start=0,finish=0, chunk_size=0.0,chunk_size_temp=0.0, finish_state=0.0, place=0 ;
   for(i=0;i<4;i++){Arf[i]=Ars[i]=Ardone[i]=0;} 
 
-  omp_set_num_threads(2);
+  omp_set_num_threads(1);
 
 
-#pragma omp parallel default(none) private(i,j, Tid, Tnums, start, finish, place, chunk_range, chunk_range_temp, finish_state) shared(a,b, Ars, Arf, Ardone)  
+#pragma omp parallel default(none) private(i,j, Tid, Tnums, start, finish, place, chunk_size, chunk_size_temp, finish_state) shared(a,b, Ars, Arf, Ardone)  
 {   
-  chunk_range_temp=0,finish_state=0,chunk_range=0.0,start=0.0,finish=0.0;
-
+  chunk_size_temp=0.0,finish_state=0,chunk_size=0.0,start=0.0,finish=0.0,i=0,j=0;
+  
   Tid = omp_get_thread_num();
   Tnums = omp_get_num_threads();
   Ars[Tid] = N*Tid/Tnums;
-  Arf[Tid] = N*(Tid+1)/Tnums - 1;
+  Arf[Tid] = N*(Tid+1)/Tnums -1;
   start = Ars[Tid];
   finish = Arf[Tid];
-  // printf("Ars: %d, Arf:%d \n",Ars[Tid], Arf[Tid]);
-
-        for (i=start; i<finish; i++){ 
-          
-          chunk_range = ceil(((finish-start)-chunk_range_temp)/omp_get_num_threads());
-
-          chunk_range_temp = chunk_range_temp + chunk_range; 
-          
-          while(chunk_range!=0){
-              for (j=N-1; j>i; j--){
-                a[i][j] += cos(b[i][j]);
-              }
-          chunk_range--; 
-          }//while 
-        finish_state = 1;
-        }//outermost for
-
-}// pragama
+  printf("Ars: %d, Arf:%d, Diff: %d \n",Ars[Tid], Arf[Tid] ,Arf[Tid]-Ars[Tid] );
+  chunk_size_temp = finish - start + 1;
+  int  e;
+  for (i=start; i<=finish; i++){ 
+      
+    e = start;
+    chunk_size = ceil((chunk_size_temp)/Tnums);
+    chunk_size_temp -= chunk_size;
+    if(chunk_size!=0){
+        printf("chunk_size %lf\n",chunk_size);
+        }
+    while(chunk_size!=0){ 
+      printf("cs %lf\n", chunk_size);    
+        for (j=N-1; j>e; j--){
+          a[e][j] += cos(b[e][j]);
+        }
+        e++;
+    chunk_size--; 
+    }                           //while
+  
+  finish_state = 1;
+  }                             //outermost for      
+  }                                   // pragama
 }
 
 void loop2(void) {
