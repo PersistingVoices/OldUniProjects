@@ -3,7 +3,7 @@
 
 
 #define N 729
-#define reps 1 
+#define reps 1
 #include <omp.h> 
 
 double a[N][N], b[N][N], c[N];
@@ -94,15 +94,22 @@ void init2(void){
  
 } 
 
+
+ // if (chunk_size!=0)
+    // {
+    // printf("Tid: %d, chunk_size= %lf\n",Tid,chunk_size);
+    // }
+
+
 void loop1(void) { 
-  int i,j, Ars[4], Arf[4], Ardone[4], Tid = 0, Tnums=0;
-  double start=0,finish=0, chunk_size=0.0,chunk_size_temp=0.0, finish_state=0.0, place=0 ;
-  for(i=0;i<4;i++){Arf[i]=Ars[i]=Ardone[i]=0;} 
+  int i,j, Ars[4], Arf[4], Arnow[4], Tid = 0, Tid_max=0, Tnums=0,e=0;
+  double start=0,finish=0, chunk_size=0.0,chunk_size_temp=0.0, finish_state=0.0, gap=0, max_gap=0;
+  for(i=0;i<4;i++){Arf[i]=Ars[i]=Arnow[i]=0;} 
 
-  omp_set_num_threads(1);
+  omp_set_num_threads(4);
 
 
-#pragma omp parallel default(none) private(i,j, Tid, Tnums, start, finish, place, chunk_size, chunk_size_temp, finish_state) shared(a,b, Ars, Arf, Ardone)  
+#pragma omp parallel default(none) private(max_gap ,i,j, Tid,Tid_max, Tnums, start, finish, gap, chunk_size, chunk_size_temp, finish_state) shared(a,b, Ars, Arf, Arnow)  
 {   
   chunk_size_temp=0.0,finish_state=0,chunk_size=0.0,start=0.0,finish=0.0,i=0,j=0;
   
@@ -112,29 +119,48 @@ void loop1(void) {
   Arf[Tid] = N*(Tid+1)/Tnums -1;
   start = Ars[Tid];
   finish = Arf[Tid];
-  printf("Ars: %d, Arf:%d, Diff: %d \n",Ars[Tid], Arf[Tid] ,Arf[Tid]-Ars[Tid] );
+
   chunk_size_temp = finish - start + 1;
-  int  e;
+  int e=0;
+  
   for (i=start; i<=finish; i++){ 
-      
+
     e = start;
     chunk_size = ceil((chunk_size_temp)/Tnums);
     chunk_size_temp -= chunk_size;
-    if(chunk_size!=0){
-        printf("chunk_size %lf\n",chunk_size);
-        }
+   
     while(chunk_size!=0){ 
-      printf("cs %lf\n", chunk_size);    
         for (j=N-1; j>e; j--){
           a[e][j] += cos(b[e][j]);
         }
-        e++;
+    e++;  
     chunk_size--; 
-    }                           //while
-  
+    }//while
   finish_state = 1;
-  }                             //outermost for      
-  }                                   // pragama
+  }//outermost for
+
+if(finish_state==1){
+
+#pragma omp critical
+    {
+
+      for ( i = 0; i < 4; ++i)
+      { 
+        max_gap = gap;
+        gap = Arf[i] -Arnow[i];
+        if(gap>max_gap)
+        {
+          max_gap= gap;
+          Tid_max=i;
+        }
+      }
+     chunk_size_temp = max_gap*Tid_max/Tnums;
+     printf("New chunk_size= %d\n",chunk_size );
+    }      
+  }//if
+
+  }// pragama
+
 }
 
 void loop2(void) {
