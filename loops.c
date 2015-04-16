@@ -95,37 +95,57 @@ void init2(void){
 } 
 
 void loop1(void) { 
-  int i,j, Ars[4], Arf[4], Ardone[4], Tid=0, Tnum=0;
+  int i,j, Ars[4], Arf[4], Ardone[4], Tid = 0, Tnums=0;
+  double start=0,finish=0, chunk_range=0.0,chunk_range_temp=0.0, finish_state=0.0, place=0 ;
   for(i=0;i<4;i++){Arf[i]=Ars[i]=Ardone[i]=0;} 
 
   omp_set_num_threads(2);
 
 
-#pragma omp parallel default(none) private(i,j, Ars, Arf, Ardone, Tid, Tnum) shared(a,b) 
-{     
-        for (i=0; i<N; i++){ 
-          for (j=N-1; j>i; j--){
-            a[i][j] += cos(b[i][j]);
-          } 
-        }
+#pragma omp parallel default(none) private(i,j, Tid, Tnums, start, finish, place, chunk_range, chunk_range_temp, finish_state) shared(a,b, Ars, Arf, Ardone)  
+{   
+  chunk_range_temp=0,finish_state=0,chunk_range=0.0,start=0.0,finish=0.0;
 
-} 
+  Tid = omp_get_thread_num();
+  Tnums = omp_get_num_threads();
+  Ars[Tid] = N*Tid/Tnums;
+  Arf[Tid] = N*(Tid+1)/Tnums - 1;
+  start = Ars[Tid];
+  finish = Arf[Tid];
+  // printf("Ars: %d, Arf:%d \n",Ars[Tid], Arf[Tid]);
 
+        for (i=start; i<finish; i++){ 
+          
+          chunk_range = ceil(((finish-start)-chunk_range_temp)/omp_get_num_threads());
+
+          chunk_range_temp = chunk_range_temp + chunk_range; 
+          
+          while(chunk_range!=0){
+              for (j=N-1; j>i; j--){
+                a[i][j] += cos(b[i][j]);
+              }
+          chunk_range--; 
+          }//while 
+        finish_state = 1;
+        }//outermost for
+
+}// pragama
+}
 
 void loop2(void) {
   int i,j,k; 
   double rN2; 
 
-rN2 = 1.0 / (double) (N*N);  
+// rN2 = 1.0 / (double) (N*N);  
 
 
-  for (i=0; i<N; i++){ 
-    for (j=0; j < jmax[i]; j++){
-      for (k=0; k<j; k++){ 
-	c[i] += (k+1) * log (b[i][j]) * rN2;
-      } 
-    }
-  }
+//   for (i=0; i<N; i++){ 
+//     for (j=0; j < jmax[i]; j++){
+//       for (k=0; k<j; k++){ 
+// 	c[i] += (k+1) * log (b[i][j]) * rN2;
+//       } 
+//     }
+  // }
 
 
 }//end void
