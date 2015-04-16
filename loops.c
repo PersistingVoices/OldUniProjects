@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
 } 
 
 void init1(void){
-  int i,j; 
+  int i,j, Ars[4], Arf[4], Ardone[4];
 
   for (i=0; i<N; i++){ 
     for (j=0; j<N; j++){ 
@@ -95,13 +95,19 @@ void init2(void){
 } 
 
 void loop1(void) { 
-  int i,j; 
-  
-  for (i=0; i<N; i++){ 
-    for (j=N-1; j>i; j--){
-      a[i][j] += cos(b[i][j]);
-    } 
-  }
+  int i,j, Ars[4], Arf[4], Ardone[4], Tid=0, Tnum=0;
+  for(i=0;i<4;i++){Arf[i]=Ars[i]=Ardone[i]=0;} 
+
+  omp_set_num_threads(2);
+
+
+#pragma omp parallel default(none) private(i,j, Ars, Arf, Ardone, Tid, Tnum) shared(a,b) 
+{     
+        for (i=0; i<N; i++){ 
+          for (j=N-1; j>i; j--){
+            a[i][j] += cos(b[i][j]);
+          } 
+        }
 
 } 
 
