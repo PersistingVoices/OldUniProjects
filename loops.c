@@ -95,19 +95,13 @@ void init2(void){
 } 
 
 
- // if (chunk_size!=0)
-    // {
-    // printf("Tid: %d, chunk_size= %lf\n",Tid,chunk_size);
-    // }
-
-
 void loop1(void) { 
+  printf("-----------------LOOP1----------------\n");
   int i,j, Ars[4], Arf[4], Arnow[4], Tid = 0, Tid_max=0, Tnums=0,e=0;
   double start=0,finish=0, chunk_size=0.0,chunk_size_temp=0.0, finish_state=0.0, gap=0, max_gap=0;
   for(i=0;i<4;i++){Arf[i]=Ars[i]=Arnow[i]=0;} 
 
   omp_set_num_threads(4);
-
 
 #pragma omp parallel default(none) private(max_gap ,i,j, Tid,Tid_max, Tnums, start, finish, gap, chunk_size, chunk_size_temp, finish_state) shared(a,b, Ars, Arf, Arnow)  
 {   
@@ -127,8 +121,8 @@ void loop1(void) {
 
     
     chunk_size = ceil((chunk_size_temp)/Tnums);
-    if (chunk_size!=0)
-    // printf("New chunk_size= %lf\n",chunk_size);
+    // if (chunk_size!=0)
+    // // printf("New chunk_size= %lf\n",chunk_size);
     chunk_size_temp -= chunk_size;
    
     while(chunk_size!=0){ 
@@ -136,6 +130,7 @@ void loop1(void) {
           a[e][j] += cos(b[e][j]);
         }
     e++;  
+    Arnow[Tid]++;
     chunk_size--; 
     }//while
   finish_state = 1;
@@ -145,11 +140,13 @@ if(finish_state==1){
 
 #pragma omp critical
     {
-      printf("Thread ID: %d\n",Tid);
+      printf("Arnow[%d]: %d\n",Tid,Arnow[Tid]);
+      
       for ( i = 0; i < 4; ++i)
       { 
         max_gap = gap;
         gap = Arf[i] -Arnow[i];
+
         if(gap>max_gap)
         {
           max_gap= gap;
@@ -157,31 +154,82 @@ if(finish_state==1){
         }
       }
      chunk_size_temp = max_gap*Tid_max/Tnums;
-     printf("max_gap*Tid/Tnums=  (%lf * %d)/%d\n",max_gap, Tid, Tnums);
+     printf("max_gap*Tid_max/Tnums=  (%lf * %d)/%d\n",max_gap, Tid_max, Tnums);
     }      
   }//if
 
   }// pragama
-
+printf("-----------------LOOP1----------------\n");
+  
 }
 
+
+
 void loop2(void) {
-  int i,j,k; 
-  double rN2; 
+printf("-----------------LOOP2----------------\n");
+int i,j,k, Ars[4], Arf[4], Arnow[4], Tid = 0, Tid_max=0, Tnums=0,e=0;
+  double start=0,finish=0, chunk_size=0.0,chunk_size_temp=0.0, finish_state=0.0, gap=0, max_gap=0;
+  for(i=0;i<4;i++){Arf[i]=Ars[i]=Arnow[i]=0;} 
 
-// rN2 = 1.0 / (double) (N*N);  
+  omp_set_num_threads(4);
+ 
+double rN2; 
 
+rN2 = 1.0 / (double) (N*N);  
 
-//   for (i=0; i<N; i++){ 
-//     for (j=0; j < jmax[i]; j++){
-//       for (k=0; k<j; k++){ 
-// 	c[i] += (k+1) * log (b[i][j]) * rN2;
-//       } 
-//     }
-  // }
+#pragma omp parallel default(none) private(i,j,k,rN2,max_gap,jmax ,Tid,Tid_max, Tnums, start, finish, gap, chunk_size, chunk_size_temp, finish_state) shared(a,b,c, Ars, Arf, Arnow)  
+{   
 
+chunk_size_temp=0.0,
+finish_state=0,
+chunk_size=0.0,
+start=0.0,
+finish=0.0,
+i=0,
+j=0;
+int e=0;
+   
+  Tid = omp_get_thread_num();
+  printf("Tid: %d\n", Tid);
+  Tnums = omp_get_num_threads();
+  Ars[Tid] = N*Tid/Tnums;
+  Arf[Tid] = N*(Tid+1)/Tnums -1;
+  start = Ars[Tid];
+  finish = Arf[Tid];
+ 
+  e= start;
+  chunk_size_temp = finish - start + 1;
+ 
+  for (i=start; i<finish; i++){ 
+    
+    chunk_size = ceil((chunk_size_temp)/Tnums);
+    chunk_size_temp -= chunk_size;
+ 
+ while(chunk_size!=0){ 
+  
+    for (j=0; j < jmax[e]; j++){
+      printf("j: %d\n",j );
+      for (k=0; k<j; k++){ 
+	printf("k: %d\n",k );
+      
+  c[e] += (k+1) * log (b[e][j]) * rN2;
+      } 
+      // f++;
+    }
+    e++;
+    chunk_size--;
+  }//while 
 
+  }
+
+}//pragma end
+printf("-----------------LOOP2----------------\n");
 }//end void
+
+
+
+
+
 
 void valid1(void) { 
   int i,j; 
@@ -196,7 +244,6 @@ void valid1(void) {
   printf("Loop 1 check: Sum of a is %lf\n", suma);
 
 } 
-
 
 void valid2(void) { 
   int i; 
