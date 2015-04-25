@@ -122,11 +122,13 @@ void loop1(void) {
 
   chunk_size_temp = finish - start + 1;
   int e=0;
-  
+  e = start;
   for (i=start; i<=finish; i++){ 
 
-    e = start;
+    
     chunk_size = ceil((chunk_size_temp)/Tnums);
+    if (chunk_size!=0)
+    // printf("New chunk_size= %lf\n",chunk_size);
     chunk_size_temp -= chunk_size;
    
     while(chunk_size!=0){ 
@@ -143,7 +145,7 @@ if(finish_state==1){
 
 #pragma omp critical
     {
-
+      printf("Thread ID: %d\n",Tid);
       for ( i = 0; i < 4; ++i)
       { 
         max_gap = gap;
@@ -155,7 +157,7 @@ if(finish_state==1){
         }
       }
      chunk_size_temp = max_gap*Tid_max/Tnums;
-     printf("New chunk_size= %d\n",chunk_size );
+     printf("max_gap*Tid/Tnums=  (%lf * %d)/%d\n",max_gap, Tid, Tnums);
     }      
   }//if
 
