@@ -1,0 +1,42 @@
+# This is a simple template script to run batch jobs on ARCHER at EPCC
+#
+# You only have to do two things to run an MPI program with it:
+#
+# 1) Make a copy of the script with the same name as your MPI executable,
+#    eg if the executable is 'myjob' then type: cp mpibatch.pbs myjob.pbs
+#
+# 2) Set the variable "NPROC" appropriately (and "select" if NPROC > 24)
+#
+# All screen output (stdout and stderr) will appear in a file called
+# myjob.pbs.oXXXXX, where XXXXX is the job number assigned at submit time.
+#
+# David Henty, EPCC, 10/04/2015
+#
+
+#PBS -A y14
+#PBS -j oe
+#PBS -l walltime=00:05:00
+#PBS -l select=1
+  
+#----------------------------------------------------------------------#
+# You should only have to change the following parameter NPROC, unless #
+# running on more than 24 processes when "select=1" must be increased. #
+#----------------------------------------------------------------------#
+
+NUM_OF_THREADS=24
+
+cd $PBS_O_WORKDIR
+
+OMPPROG=`basename $PBS_JOBNAME .pbs`
+THREADS=$NUM_OF_THREADS
+echo '--------------------------------------------------------------------------------'
+
+echo 'Running OMP program' $OMPPROG 'on' $NUM_OF_THREADS 'threads'
+
+echo 'Started at' `date`
+echo '--------------------------------------------------------------------------------'
+
+(time aprun -n 1 -N $THREADS ./$OMPPROG) 2>&1
+
+echo '--------------------------------------------------------------------------------'
+echo 'Finished at' `date`
