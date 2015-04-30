@@ -25,8 +25,8 @@ int main(int argc, char *argv[]) {
 	double start1,start2,end1,end2,time1,time2;
 	int r,i=0,rand(void);
 
-	pFile1 = fopen ("Data/file1.dat" , "w");
-	pFile2 = fopen ("Data/file2.dat" , "w");
+	pFile1 = fopen ("Data/HS-Q1-Paralell-file1.dat" , "w");
+	pFile2 = fopen ("Data/HS-Q1-Paralell-file2.dat" , "w");
 
 	if (pFile1 == NULL || pFile2 ==NULL) perror ("Error opening file");
 
@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
 		fprintf(pFile1,"%lf\t%d\t%lf\n",(i+1)*time1,i+1,time1);
 		fprintf(pFile2,"%lf\t%d\t%lf\n",(i+1)*time2,i+1,time2); 
 	}
-	printf("\n\t\t\tWritten to 'file1.dat & file2.dat'\n\n"); 
+	printf("\n\t\t\tWritten to 'HS-Q1-Paralell-file1.dat & HS-Q1-Paralell-file2.dat'\n\n"); 
 	fclose(pFile1);
 	fclose(pFile2);
 
@@ -74,9 +74,9 @@ int main(int argc, char *argv[]) {
 	fputs("set xlabel'Random Axis Arrangement (for 3-d plot)'\n ", pipe_gp1);
 	fputs("set ylabel 'Iteration Number'\n ", pipe_gp1);
 	fputs("set zlabel 'Time taken for 100 iterations'\n ", pipe_gp1);
-	fputs("splot 'Data/file1.dat' u 1:2:3 w lines \n ", pipe_gp1);
+	fputs("splot 'Data/HS-Q1-Paralell-file1.dat' u 1:2:3 w lines \n ", pipe_gp1);
 	fputs("set terminal png  size 1200,800\n ", pipe_gp1); 
-	fputs("set output 'Plots/Q1-Parallel-3dplot.png'\n ", pipe_gp1);
+	fputs("set output 'Plots/HS-Q1-Paralell-3dplot1.png'\n ", pipe_gp1);
 	fputs("replot\n ", pipe_gp1);
 
 
@@ -87,9 +87,9 @@ int main(int argc, char *argv[]) {
 	fputs("set title '2DPlot1'\n ", pipe_gp1);
 	fputs("set xlabel 'Iteration Number'\n ", pipe_gp1);
 	fputs("set ylabel 'Time taken for 100 iterations'\n ", pipe_gp1);
-	fputs("plot 'Data/file1.dat' u 2:3 w lines \n ", pipe_gp1);
+	fputs("plot 'Data/HS-Q1-Paralell-file1.dat' u 2:3 w lines \n ", pipe_gp1);
 	fputs("set terminal png  size 1200,800\n ", pipe_gp1); 
-	fputs("set output 'Plots/Q1-Parallel-2dplot.png'\n ", pipe_gp1);
+	fputs("set output 'Plots/HS-Q1-Paralell-2dplot1.png'\n ", pipe_gp1);
 	fputs("replot\n ", pipe_gp1);
 
 	fputs("reset\n ", pipe_gp1);
@@ -102,9 +102,9 @@ int main(int argc, char *argv[]) {
 	fputs("set xlabel'Random Axis Arrangement (for 3-d plot)'\n ", pipe_gp1);
 	fputs("set ylabel 'Iteration Number'\n ", pipe_gp1);
 	fputs("set zlabel 'Time taken for 100 iterations'\n ", pipe_gp1);
-	fputs("splot 'Data/Q1-Parallel.dat' u 1:2:3 w lines \n ", pipe_gp1);
+	fputs("splot 'Data/HS-Q1-Paralell-file2.dat' u 1:2:3 w lines \n ", pipe_gp1);
 	fputs("set terminal png  size 1200,800\n ", pipe_gp1); 
-	fputs("set output 'Plots/Q1-Parallel-3dplot.png'\n ", pipe_gp1);
+	fputs("set output 'Plots/HS-Q1-Paralell-3dplot2.png'\n ", pipe_gp1);
 	fputs("replot\n ", pipe_gp1);
 
 	fputs("reset\n ", pipe_gp1);
@@ -114,14 +114,14 @@ int main(int argc, char *argv[]) {
 	fputs("set title '2DPlot1'\n ", pipe_gp1);
 	fputs("set xlabel 'Time taken for 100 iterations'\n ", pipe_gp1);
 	fputs("set ylabel 'Iteration Number'\n ", pipe_gp1);
-	fputs("plot 'Data/Q1-Parallel.dat' u 2:3 w lines \n ", pipe_gp1);
+	fputs("plot 'Data/HS-Q1-Paralell-file2.dat' u 2:3 w lines \n ", pipe_gp1);
 	fputs("set terminal png  size 1200,800\n ", pipe_gp1); 
-	fputs("set output 'Plots/Q1-Parallel-2dplot.png'\n ", pipe_gp1);
+	fputs("set output 'Plots/HS-Q1-Paralell-2dplot2.png'\n ", pipe_gp1);
 	fputs("replot\n ", pipe_gp1);
 
 	pclose(pipe_gp1);
 
-	printf("\n\t\t\tPlots at 'plot1.png & plot2.png' for loop1 & loop2  (100I)\n\n"); 
+	printf("\n\t\t\tPlots at 'HS-Q1-Paralell-plot1.png & HS-Q1-Paralell-plot2.png' for loop1 & loop2  (100I)\n\n"); 
 } 
 
 void init1(void){
