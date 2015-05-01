@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#define THREADS 24
+//#define THREADS 24
 #define N 729
 #define reps 100 
 #include <omp.h> 
@@ -16,7 +16,7 @@ void loop2(void);
 void valid1(void);
 void valid2(void);
 
-OMP_NUM_THREADS= THREADS;
+//OMP_NUM_THREADS= THREADS;
 
 int main(int argc, char *argv[]) { 
 	FILE *pFile2,*pFile1;
@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
 	fputs("set zlabel 'Time taken for 100 iterations'\n ", pipe_gp1);
 	fputs("splot 'Data/DYNAMIC-n--file1.dat' u 1:2:3 w lines \n ", pipe_gp1);
 	fputs("set terminal png  size 1200,800\n ", pipe_gp1); 
-	fputs("set output 'Plots/DYNAMIC-n--3dplot.png'\n ", pipe_gp1);
+	fputs("set output 'Plots/DYNAMIC-n--3dplot1.png'\n ", pipe_gp1);
 	fputs("replot\n ", pipe_gp1);
 
 
@@ -89,7 +89,7 @@ int main(int argc, char *argv[]) {
 	fputs("set ylabel 'Time taken for 100 iterations'\n ", pipe_gp1);
 	fputs("plot 'Data/DYNAMIC-n--file1.dat' u 2:3 w lines \n ", pipe_gp1);
 	fputs("set terminal png  size 1200,800\n ", pipe_gp1); 
-	fputs("set output 'Plots/DYNAMIC-n--2dplot.png'\n ", pipe_gp1);
+	fputs("set output 'Plots/DYNAMIC-n--2dplot1.png'\n ", pipe_gp1);
 	fputs("replot\n ", pipe_gp1);
 
 	fputs("reset\n ", pipe_gp1);
@@ -104,7 +104,7 @@ int main(int argc, char *argv[]) {
 	fputs("set zlabel 'Time taken for 100 iterations'\n ", pipe_gp1);
 	fputs("splot 'Data/DYNAMIC-n--file2.dat' u 1:2:3 w lines \n ", pipe_gp1);
 	fputs("set terminal png  size 1200,800\n ", pipe_gp1); 
-	fputs("set output 'Plots/DYNAMIC-n--3dplot.png'\n ", pipe_gp1);
+	fputs("set output 'Plots/DYNAMIC-n--3dplot2.png'\n ", pipe_gp1);
 	fputs("replot\n ", pipe_gp1);
 
 	fputs("reset\n ", pipe_gp1);
@@ -116,7 +116,7 @@ int main(int argc, char *argv[]) {
 	fputs("set ylabel 'Iteration Number'\n ", pipe_gp1);
 	fputs("plot 'Data/DYNAMIC-n--file2.dat' u 2:3 w lines \n ", pipe_gp1);
 	fputs("set terminal png  size 1200,800\n ", pipe_gp1); 
-	fputs("set output 'Plots/DYNAMIC-n--2dplot.png'\n ", pipe_gp1);
+	fputs("set output 'Plots/DYNAMIC-n--2dplot2.png'\n ", pipe_gp1);
 	fputs("replot\n ", pipe_gp1);
 
 	pclose(pipe_gp1);

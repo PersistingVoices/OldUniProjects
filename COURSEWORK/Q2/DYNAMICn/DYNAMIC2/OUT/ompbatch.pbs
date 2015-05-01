@@ -29,6 +29,7 @@ cd $PBS_O_WORKDIR
 
 OMPPROG=`basename $PBS_JOBNAME .pbs`
 THREADS=$NUM_OF_THREADS
+
 echo '--------------------------------------------------------------------------------'
 
 echo 'Running OMP program' $OMPPROG 'on' $NUM_OF_THREADS 'threads'

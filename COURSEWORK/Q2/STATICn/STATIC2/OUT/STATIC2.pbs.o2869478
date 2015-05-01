@@ -1,0 +1,28 @@
+--------------------------------------------------------------------------------
+*** ss6g11   Job: 2869478.sdb   started: 30/04/15 18:22:32   host: esPP002 ***
+*** ss6g11   Job: 2869478.sdb   started: 30/04/15 18:22:32   host: esPP002 ***
+*** ss6g11   Job: 2869478.sdb   started: 30/04/15 18:22:32   host: esPP002 ***
+*** ss6g11   Job: 2869478.sdb   started: 30/04/15 18:22:32   host: esPP002 ***
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Running OMP program STATIC2 on 12 threads
+Started at Thu Apr 30 18:22:34 BST 2015
+--------------------------------------------------------------------------------
+/cm/local/apps/pbspro/var/spool/mom_priv/jobs/2869478.sdb.SC: line 39: aprun: command not found
+
+real	0m0.001s
+user	0m0.000s
+sys	0m0.000s
+--------------------------------------------------------------------------------
+Finished at Thu Apr 30 18:22:34 BST 2015
+--------------------------------------------------------------------------------
+
+Resources requested: ncpus=24,place=free,walltime=00:05:00
+Resources allocated: cpupercent=0,cput=00:00:00,mem=8728kb,ncpus=24,vmem=40084kb,walltime=00:00:02
+
+*** ss6g11   Job: 2869478.sdb   ended: 30/04/15 18:22:34   queue: serial ***
+*** ss6g11   Job: 2869478.sdb   ended: 30/04/15 18:22:34   queue: serial ***
+*** ss6g11   Job: 2869478.sdb   ended: 30/04/15 18:22:34   queue: serial ***
+*** ss6g11   Job: 2869478.sdb   ended: 30/04/15 18:22:34   queue: serial ***
+--------------------------------------------------------------------------------

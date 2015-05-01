@@ -1,5 +1,5 @@
 # This is a simple template script to run batch jobs on ARCHER at EPCC
-#
+#:q
 # You only have to do two things to run an MPI program with it:
 #
 # 1) Make a copy of the script with the same name as your MPI executable,
@@ -23,12 +23,12 @@
 # running on more than 24 processes when "select=1" must be increased. #
 #----------------------------------------------------------------------#
 
-NUM_OF_THREADS=12
+export OMP_NUM_THREADS =6
 
 cd $PBS_O_WORKDIR
 
 OMPPROG=`basename $PBS_JOBNAME .pbs`
-THREADS=$NUM_OF_THREADS
+
 echo '--------------------------------------------------------------------------------'
 
 echo 'Running OMP program' $OMPPROG 'on' $NUM_OF_THREADS 'threads'
@@ -36,7 +36,7 @@ echo 'Running OMP program' $OMPPROG 'on' $NUM_OF_THREADS 'threads'
 echo 'Started at' `date`
 echo '--------------------------------------------------------------------------------'
 
-(time aprun -n 1 -d $THREADS ./$OMPPROG) 2>&1
+(time aprun -n 1 -d $OMP_NUM_THREADS ./$OMPPROG) 2>&1
 
 echo '--------------------------------------------------------------------------------'
 echo 'Finished at' `date`
