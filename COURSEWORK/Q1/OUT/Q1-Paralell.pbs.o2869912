@@ -1,0 +1,40 @@
+--------------------------------------------------------------------------------
+*** ss6g11   Job: 2869912.sdb   started: 01/05/15 05:39:23   host: mom5 ***
+*** ss6g11   Job: 2869912.sdb   started: 01/05/15 05:39:23   host: mom5 ***
+*** ss6g11   Job: 2869912.sdb   started: 01/05/15 05:39:23   host: mom5 ***
+*** ss6g11   Job: 2869912.sdb   started: 01/05/15 05:39:23   host: mom5 ***
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Running OMP program Q1-Paralell on 6 threads
+Started at Fri May 1 05:39:24 BST 2015
+--------------------------------------------------------------------------------
+
+			Written to 'HS-Q1-Paralell-file1.dat & HS-Q1-Paralell-file2.dat'
+
+
+(<unknown>:31864): GLib-WARNING **: getpwuid_r(): failed due to: Transport endpoint is not connected.
+Failed to initialize wxWidgets.
+Previous attempt to initialize wxWidgets has failed. Not retrying.
+Previous attempt to initialize wxWidgets has failed. Not retrying.
+Previous attempt to initialize wxWidgets has failed. Not retrying.
+
+			Plots at 'HS-Q1-Paralell-plot1.png & HS-Q1-Paralell-plot2.png' for loop1 & loop2  (100I)
+
+Application 13950249 resources: utime ~70s, stime ~0s, Rss ~17628, inblocks ~45703, outblocks ~11578
+
+real	1m35.571s
+user	0m0.136s
+sys	0m0.032s
+--------------------------------------------------------------------------------
+Finished at Fri May 1 05:40:59 BST 2015
+--------------------------------------------------------------------------------
+
+Resources requested: ncpus=24,place=free,walltime=00:05:00
+Resources allocated: cpupercent=0,cput=00:00:00,mem=7152kb,ncpus=24,vmem=90880kb,walltime=00:01:36
+
+*** ss6g11   Job: 2869912.sdb   ended: 01/05/15 05:41:00   queue: long ***
+*** ss6g11   Job: 2869912.sdb   ended: 01/05/15 05:41:00   queue: long ***
+*** ss6g11   Job: 2869912.sdb   ended: 01/05/15 05:41:00   queue: long ***
+*** ss6g11   Job: 2869912.sdb   ended: 01/05/15 05:41:00   queue: long ***
+--------------------------------------------------------------------------------

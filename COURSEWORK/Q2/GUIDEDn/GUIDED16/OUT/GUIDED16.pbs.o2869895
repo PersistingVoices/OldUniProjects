@@ -1,0 +1,40 @@
+--------------------------------------------------------------------------------
+*** ss6g11   Job: 2869895.sdb   started: 01/05/15 04:40:56   host: mom3 ***
+*** ss6g11   Job: 2869895.sdb   started: 01/05/15 04:40:56   host: mom3 ***
+*** ss6g11   Job: 2869895.sdb   started: 01/05/15 04:40:56   host: mom3 ***
+*** ss6g11   Job: 2869895.sdb   started: 01/05/15 04:40:56   host: mom3 ***
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Running OMP program GUIDED16 on 6 threads
+Started at Fri May 1 04:40:56 BST 2015
+--------------------------------------------------------------------------------
+
+			Written to 'GUIDED-n-file1.dat & GUIDED-n-file2.dat'
+
+
+(<unknown>:27895): GLib-WARNING **: getpwuid_r(): failed due to: Transport endpoint is not connected.
+Failed to initialize wxWidgets.
+Previous attempt to initialize wxWidgets has failed. Not retrying.
+Previous attempt to initialize wxWidgets has failed. Not retrying.
+Previous attempt to initialize wxWidgets has failed. Not retrying.
+
+			Plots at 'GUIDED-n-plot1.png & GUIDED-n-plot2.png' for loop1 & loop2  (100I)
+
+Application 13949061 resources: utime ~70s, stime ~0s, Rss ~17632, inblocks ~45704, outblocks ~11584
+
+real	1m35.595s
+user	0m0.128s
+sys	0m0.036s
+--------------------------------------------------------------------------------
+Finished at Fri May 1 04:42:32 BST 2015
+--------------------------------------------------------------------------------
+
+Resources requested: ncpus=24,place=free,walltime=00:05:00
+Resources allocated: cpupercent=0,cput=00:00:00,mem=7152kb,ncpus=24,vmem=90880kb,walltime=00:01:37
+
+*** ss6g11   Job: 2869895.sdb   ended: 01/05/15 04:42:32   queue: long ***
+*** ss6g11   Job: 2869895.sdb   ended: 01/05/15 04:42:32   queue: long ***
+*** ss6g11   Job: 2869895.sdb   ended: 01/05/15 04:42:32   queue: long ***
+*** ss6g11   Job: 2869895.sdb   ended: 01/05/15 04:42:32   queue: long ***
+--------------------------------------------------------------------------------

@@ -23,7 +23,7 @@
 # running on more than 24 processes when "select=1" must be increased. #
 #----------------------------------------------------------------------#
 
-NUM_OF_THREADS=12
+NUM_OF_THREADS=6
 
 cd $PBS_O_WORKDIR
 
