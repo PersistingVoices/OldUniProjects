@@ -1,0 +1,6 @@
+#! /bin/bash
+
+for file in MgO_8.d12 MgO_16.d12 MgO_32.d12;
+do cp MgO.d12 "$file";
+done
+
