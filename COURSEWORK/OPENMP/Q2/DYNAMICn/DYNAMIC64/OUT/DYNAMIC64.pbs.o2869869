@@ -1,0 +1,40 @@
+--------------------------------------------------------------------------------
+*** ss6g11   Job: 2869869.sdb   started: 01/05/15 03:07:42   host: mom4 ***
+*** ss6g11   Job: 2869869.sdb   started: 01/05/15 03:07:42   host: mom4 ***
+*** ss6g11   Job: 2869869.sdb   started: 01/05/15 03:07:42   host: mom4 ***
+*** ss6g11   Job: 2869869.sdb   started: 01/05/15 03:07:42   host: mom4 ***
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+Running OMP program DYNAMIC64 on 12 threads
+Started at Fri May 1 03:07:42 BST 2015
+--------------------------------------------------------------------------------
+
+			Written to 'DYNAMIC-n--file1.dat & DYNAMIC-n--file2.dat'
+
+
+(<unknown>:30371): GLib-WARNING **: getpwuid_r(): failed due to: Transport endpoint is not connected.
+Failed to initialize wxWidgets.
+Previous attempt to initialize wxWidgets has failed. Not retrying.
+Previous attempt to initialize wxWidgets has failed. Not retrying.
+Previous attempt to initialize wxWidgets has failed. Not retrying.
+
+			Plots at 'DYNAMIC-n--plot1.png & DYNAMIC-n--plot2.png' for loop1 & loop2  (100I)
+
+Application 13947351 resources: utime ~70s, stime ~0s, Rss ~17624, inblocks ~45704, outblocks ~11588
+
+real	1m36.836s
+user	0m0.136s
+sys	0m0.028s
+--------------------------------------------------------------------------------
+Finished at Fri May 1 03:09:19 BST 2015
+--------------------------------------------------------------------------------
+
+Resources requested: ncpus=24,place=free,walltime=00:05:00
+Resources allocated: cpupercent=0,cput=00:00:00,mem=7148kb,ncpus=24,vmem=90880kb,walltime=00:01:38
+
+*** ss6g11   Job: 2869869.sdb   ended: 01/05/15 03:09:19   queue: long ***
+*** ss6g11   Job: 2869869.sdb   ended: 01/05/15 03:09:19   queue: long ***
+*** ss6g11   Job: 2869869.sdb   ended: 01/05/15 03:09:19   queue: long ***
+*** ss6g11   Job: 2869869.sdb   ended: 01/05/15 03:09:19   queue: long ***
+--------------------------------------------------------------------------------

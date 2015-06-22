@@ -1,0 +1,19 @@
+FIRST CHECK IF THE DATA AND GRAPHS APPEAR IN THE SERVER SIDE, IN THE APPROPRIATE FILES
+
+Paralellisation- 
+
+go to /USED    : --run with loops.c and get results. 
+		 --run with loopswithpar.c and get result. 
+
+Schedule clause: --make file with schedule clause enabled
+		 	-- name: StaticSchPar.c
+		 	-- name: AutoSchPar.c
+		 	-- name: StaticSchPar.c
+				-- for threads 1,2,3,6,12,24
+					-- Static 1,2,4,8,16,32,64
+		 	-- name: DynamicSchPar.c
+				-- for threads 1,2,3,6,12,24
+					-- Dynamic 1,2,4,8,16,32,64
+		 	-- name: GuidedSchPar.c
+				-- for threads 1,2,3,6,12,24
+					-- Guided 1,2,4,8,16,32,64
