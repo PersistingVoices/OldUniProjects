@@ -1,5 +1,5 @@
 Mgo bulk
-CRYSTAL ! added a comment
+CRYSTAL 
 0 0 0 
 225 
 4.21 
@@ -10,6 +10,7 @@ SUPERCELL
  -1.000     1.000     1.000 
   1.000    -1.000     1.000 
   1.000     1.000    -1.000
+ATOMSYMM
 TESTGEOM
 END
 12 3 
@@ -24,4 +25,4 @@ END
 SHRINK
 8 8 
 END
-!comon commit this
+

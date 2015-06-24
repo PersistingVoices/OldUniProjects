@@ -6,22 +6,26 @@ CRYSTAL
 2 
 12 0.    0.    0. 
 8 0.5   0.5   0.5
-SUPERCELL
+SUPERCELL ! atoms = 8
  -1.000     1.000     1.000 
   1.000    -1.000     1.000 
   1.000     1.000    -1.000
+ATOMSYMM
+ATOMSUBS
+1 ! number of atoms to be subs
+1 20 ! atom level, atomic number of new atom
 TESTGEOM
 END
-12 3 
-1 0 3  2.  0. 
-1 1 3  8.  0. 
-1 1 3  2.  0. 
-8 2 
-1 0 3  2.  0. 
-1 1 3  6.  0. 
-99   0
-END
-SHRINK
-8 8 
-END
-
+! 12 3 
+! 1 0 3  2.  0. 
+! 1 1 3  8.  0. 
+! 1 1 3  2.  0. 
+! 8 2 
+! 1 0 3  2.  0. 
+! 1 1 3  6.  0. 
+! 99   0
+! END
+! SHRINK
+! 8 8 
+! END
+ 

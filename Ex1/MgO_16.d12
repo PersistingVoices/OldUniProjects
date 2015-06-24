@@ -1,4 +1,3 @@
-!  Mgo_16 with added TESTGEOM to end before complilation
 Mgo bulk
 CRYSTAL 
 0 0 0 
@@ -7,13 +6,12 @@ CRYSTAL
 2 
 12 0.    0.    0. 
 8 0.5   0.5   0.5
-SUPERCELL
-  2.000     0.000     0.000 
-  0.000     2.000     0.000 
-  0.000     0.000     2.000
-TESTGEOM
-END
-12 3 
+SUPERCEL
+2.000     0.000     0.000 
+0.000     2.000     0.000 
+0.000     0.000     2.000
+ENDG
+2 3 
 1 0 3  2.  0. 
 1 1 3  8.  0. 
 1 1 3  2.  0. 
@@ -21,8 +19,20 @@ END
 1 0 3  2.  0. 
 1 1 3  6.  0. 
 99   0
-END
+GHOSTS
+1
+1
+12 3
+1 0 3 2. 0.
+1 1 3 8. 0.
+1 1 3 2. 0.
+ENDBS
+UHF
 SHRINK
-8 8 
-END
-
+4 0 4
+FMIXING
+30 
+SPINLOCK
+1 1
+PPAN
+ENDSCF
