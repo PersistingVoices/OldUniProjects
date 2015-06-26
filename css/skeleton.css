@@ -138,7 +138,7 @@ div.desc {
   
   .one.column,
   .one.columns                    { width: 4.66666666667%; }
-  .two.columns                    { width: 16%; }
+  .two.columns                    { width: 16%; padding-left: 3.0% }
   .three.columns                  { width: 23%;            }
   .four.columns                   { width: 30.6666666667%; }
   .five.columns                   { width: 39.3333333333%; }
@@ -250,7 +250,7 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: #1EAEDB;}
 a:hover {
   color: #0FA0CE; }
 
