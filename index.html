@@ -12,7 +12,7 @@
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
@@ -24,72 +24,58 @@
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-  <link rel="stylesheet" href="bower_components/fakeloader/fakeLoader.css">    
+  
+  <link rel="stylesheet" href="bower_components/fakeloader/fakeLoader.css">  
+  <link rel="stylesheet" href="/css/animate.min.css">    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="bower_components/fakeloader/fakeLoader.min.js"></script>    
-
+  
 </head>
 
     
 <body>
-
-<script type="text/javascript">
-$("#fakeloader").fakeLoader();
-</script>
-
-<script type="text/javascript">
-$("#fakeloader").fakeLoader({
-timeToHide:1200, //Time in milliseconds for fakeLoader disappear
-zIndex:"999",//Default zIndex
-spinner:"spinner1",//Options: 'spinner1', 'spinner2', 'spinner3', 'spinner4', 'spinner5', 'spinner6', 'spinner7'
-bgColor:"#2ecc71", //Hex, RGB or RGBA colors
-imagePath:"yourPath/customizedImage.gif" //If you want can you insert your custom image
-});
-</script>
-    
-    
-<div id="fakeloader"></div>
+    <div id="fakeloader"></div>
     <!-- Primary Page Layout
  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <div class="container">
-
     <div class="header" style="margin-top: 20px">  
-        <h2>Crystallised</h2> 
-          <p>A Simple Tutorial.</p>
+        <h2 class="animate fadeOut">Crystallised</h2> 
+          <p>A Simple User-Specific Tutorial Project</p>
     </div>
     
     <div class="offset by two columns">
-        <input type="button" value="About">
+        <a class="button button-primary" href="index2.html">About</a>
     </div>
     
     <div class="offset by two columns">
-        <input type="button" value="Install">
+        <a class="button button-primary" href="index3.html">Tutorial</a>
     </div>
     
     <div class="offset by two columns">
-        <input type="button" value="Tutorials">
+        <a class="button button-primary" href="index4.html">Install</a>
     </div>
     
     <div class="offset by two columns">
-        <input type="button" value="Database">
+        <a class="button button-primary" href="index3.html">Tutorial</a>
     </div>
     
     <div class="offset by two columns">
-        <input type="button" value="Contact">
+        <a class="button button-primary" href="index3.html">Contact</a>
     </div>
     
     <div class="h-band">     
         <p class="big"><img src="images/white.gif" height = 250px></p>
     </div>
     
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
-          
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
-          
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
-      </div>
-
+  <script type="text/javascript">
+    $("#fakeloader").fakeLoader({
+    timeToHide:2000, //Time in milliseconds for fakeLoader disappear
+    zIndex:"1500",//Default zIndex
+    spinner:"spinner7",//Options: 'spinner1', 'spinner2', 'spinner3', 'spinner4', 'spinner5', 'spinner6', 'spinner7'
+    bgColor:"#87CEFA", //Hex, RGB or RGBA colors
+    });
+    </script>
+    </div>    
 <!-- End Document  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
