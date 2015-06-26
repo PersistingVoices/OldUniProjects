@@ -10,6 +10,7 @@
 
 /* Table of contents
 ––––––––––––––––––––––––––––––––––––––––––––––––––
+- ** new - div for images
 - Grid
 - Base Styles
 - Typography
@@ -26,6 +27,72 @@
 */
 
 
+
+/* Header
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+div.header {
+    margin: 0px;
+    padding-bottom: 10px;
+    border: 0px solid #0000ff;
+    height: 100px;
+    width: 940px;
+    text-align: center;
+}
+
+/* Band
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+div.h-band {
+    margin-top: 70px;
+    padding-left: 0px;
+    border: 0px solid #0000ff;
+    height: 250px;
+    width: 940px;
+    text-align: center;
+    background-color: black;
+}
+
+div.v-band {
+    margin-left: 255px;
+    padding: 1%;
+    border: 0px solid #0000ff;
+    height: 900px;
+    width: 430px;
+    text-align: center;
+}
+
+/* Button-Box
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+
+/* Images
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+div.img {
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid #0000ff;
+    height: 50px;
+    width: 50px;
+    float: center;
+    text-align: center;
+}
+
+div.img img {
+    display: inline;
+    margin: 0px;
+    border: 0px solid #ffffff;
+}
+
+div.img a:hover img {
+    border:0px solid #0000ff;
+}
+
+div.desc {
+    text-align: center;
+    font-weight: normal;
+    width: 120px;
+    margin: 0px;
+}
+
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
@@ -35,6 +102,16 @@
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box; }
+
+.container2 {
+  position: absolute;
+    top: 340px;
+    left: 750px;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; }
+
 .column,
 .columns {
   width: 100%;
@@ -58,7 +135,7 @@
   .column:first-child,
   .columns:first-child {
     margin-left: 0; }
-
+  
   .one.column,
   .one.columns                    { width: 4.66666666667%; }
   .two.columns                    { width: 13.3333333333%; }
@@ -127,6 +204,12 @@ body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222; }
 
+#background {
+    background : #000000 url("http://pascocountyflattorney.com/wp-content/uploads/2012/07/tokyo-blue-background-4547.jpg") no-repeat bottom left;
+    background-size: 100% 100%;
+    min-height:100%;
+}
+
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -152,7 +235,9 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 }
 
 p {
-  margin-top: 0; }
+  margin-top: 0;
+  font-stretch: expanded;
+}
 
 
 /* Links
@@ -165,6 +250,13 @@ a:hover {
 
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+#play_button {
+    position:absolute;
+transition: .5s ease;
+    left: 202px;
+    top: 198px;
+}
 .button,
 button,
 input[type="submit"],
@@ -187,6 +279,14 @@ input[type="button"] {
   border: 1px solid #bbb;
   cursor: pointer;
   box-sizing: border-box; }
+
+input[type="play_button"]{
+    position: absolute;
+    transition: .5s ease;
+    left: 202px;
+    top: 198px;
+}
+
 .button:hover,
 button:hover,
 input[type="submit"]:hover,

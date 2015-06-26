@@ -5,7 +5,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-  <title>Your page title here :)</title>
+  <title>Crystallised-Home</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -25,22 +25,71 @@
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="bower_components/fakeloader/fakeLoader.css">    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="bower_components/fakeloader/fakeLoader.min.js"></script>    
 
 </head>
+
+    
 <body>
 
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <div class="row">
-      <div class="one-half column" style="margin-top: 25%">
-        <h4>Basic Page</h4>
+<script type="text/javascript">
+$("#fakeloader").fakeLoader();
+</script>
+
+<script type="text/javascript">
+$("#fakeloader").fakeLoader({
+timeToHide:1200, //Time in milliseconds for fakeLoader disappear
+zIndex:"999",//Default zIndex
+spinner:"spinner1",//Options: 'spinner1', 'spinner2', 'spinner3', 'spinner4', 'spinner5', 'spinner6', 'spinner7'
+bgColor:"#2ecc71", //Hex, RGB or RGBA colors
+imagePath:"yourPath/customizedImage.gif" //If you want can you insert your custom image
+});
+</script>
+    
+    
+<div id="fakeloader"></div>
+    <!-- Primary Page Layout
+ –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<div class="container">
+
+    <div class="header" style="margin-top: 20px">  
+        <h2>Crystallised</h2> 
+          <p>A Simple Tutorial.</p>
+    </div>
+    
+    <div class="offset by two columns">
+        <input type="button" value="About">
+    </div>
+    
+    <div class="offset by two columns">
+        <input type="button" value="Install">
+    </div>
+    
+    <div class="offset by two columns">
+        <input type="button" value="Tutorials">
+    </div>
+    
+    <div class="offset by two columns">
+        <input type="button" value="Database">
+    </div>
+    
+    <div class="offset by two columns">
+        <input type="button" value="Contact">
+    </div>
+    
+    <div class="h-band">     
+        <p class="big"><img src="images/white.gif" height = 250px></p>
+    </div>
+    
+        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+          
+        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+          
         <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
       </div>
-    </div>
-  </div>
 
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<!-- End Document  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
