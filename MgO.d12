@@ -10,8 +10,9 @@ SUPERCELL
  -1.000     1.000     1.000 
   1.000    -1.000     1.000 
   1.000     1.000    -1.000
+END
 ATOMSYMM
-TESTGEOM
+END
 END
 12 3 
 1 0 3  2.  0. 
