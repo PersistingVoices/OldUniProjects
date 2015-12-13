@@ -135,7 +135,7 @@ div.desc {
   .column:first-child,
   .columns:first-child {
     margin-left: 0; }
-  
+
   .one.column,
   .one.columns                    { width: 4.66666666667%; }
   .two.columns                    { width: 16%; padding-left: 3.0% }
@@ -197,7 +197,7 @@ div.desc {
 html is set to 62.5% so that all the REM measurements throughout Skeleton
 are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
-  font-size: 62.5%; }
+  font-size: 72.5%; }
 body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
@@ -217,7 +217,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 2rem;
-  font-weight: 300; 
+  font-weight: 300;
   align-content: center;
   }
 h1 { font-size: 4.0rem; line-height: 1.2;  letter-spacing: -.1rem;}
@@ -459,10 +459,10 @@ form {
   margin-bottom: 2.5rem; }
 
 p.big{
-    margin-bottom: 2.5rem; 
-    padding-left: 7rem; 
+    margin-bottom: 2.5rem;
+    padding-left: 7rem;
 }
-    
+
 
 
 
