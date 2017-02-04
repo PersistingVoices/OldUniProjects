@@ -1,2 +1,0 @@
-g++ -o CALL_BY_REF CALL_BY_REF.cpp 
-./CALL_BY_REF

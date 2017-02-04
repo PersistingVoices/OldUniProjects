@@ -1,2 +1,0 @@
-g++ -o VIRTUAL_NO VIRTUAL_NO.cpp
-./VIRTUAL_NO
